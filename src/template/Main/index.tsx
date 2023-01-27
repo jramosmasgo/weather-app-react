@@ -10,9 +10,11 @@ const Main: React.FunctionComponent = () => {
     <div className="main">
       <Sidebar />
       <div className="content">
-        {/* <Header /> */}
-        <Outlet />
-        <Footer />
+        <Header />
+        <div className="outlet">
+          <Outlet />
+        </div>
+        {/* <Footer /> */}
       </div>
     </div>
   );

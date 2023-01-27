@@ -1,6 +1,7 @@
 import { menuItems } from "@/config/menu/itemsMenu";
 import React from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./template.scss";
 
 const Sidebar: React.FunctionComponent = () => {
   const location = useLocation();
@@ -17,7 +18,13 @@ const Sidebar: React.FunctionComponent = () => {
           <div
             key={item.id}
             className={`option ${isActive(item.path)}`}
-            onClick={() => navigate(item.path)}
+            onClick={() =>
+              navigate(item.path, {
+                state: {
+                  title: item.name,
+                },
+              })
+            }
           >
             <item.icon />
             <p>{item.name}</p>
