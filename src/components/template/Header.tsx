@@ -10,8 +10,8 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <div className="header">
-      <AnimatedComponent ida={location.state.title}>
-        <h2>{location.state.title}</h2>
+      <AnimatedComponent ida={location.state?.title}>
+        <h2>{location.state?.title}</h2>
       </AnimatedComponent>
       <div className="options">
         <Button title="" type="danger" Icon={<CgDarkMode />} fn={() => {}} />
