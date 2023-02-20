@@ -1,16 +1,11 @@
 import { getLocation } from "@/api/LocationService";
 import { getWeatherByLocation } from "@/api/WeatherServices";
-import React, { useEffect } from "react";
+import { WeatherContext } from "@/context/WeatherContext";
+import React, { useContext, useEffect } from "react";
 
 const Home: React.FunctionComponent = () => {
-  const getDataWeather = async () => {
-    const data = await getWeatherByLocation("London");
-    console.log(data);
-    await getLocation();
-  };
-
+  const { state } = useContext(WeatherContext);
   useEffect(() => {
-    getDataWeather();
     // if (navigator?.geolocation) {
     //   navigator.geolocation.((location) => {
     //     if (location) {
@@ -20,7 +15,11 @@ const Home: React.FunctionComponent = () => {
     // }
   }, []);
 
-  return <div>Home</div>;
+  return (
+    <div>
+      Ubication: {state.myPlace.name} - {state.myPlace.country}{" "}
+    </div>
+  );
 };
 
 export default Home;
