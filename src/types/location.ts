@@ -38,7 +38,7 @@ interface Threat {
   blocklists: any[];
 }
 
-interface Timezone {
+export interface Timezone {
   name: string;
   abbr: string;
   offset: string;

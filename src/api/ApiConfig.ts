@@ -1,12 +1,12 @@
 import axios, { AxiosInstance } from "axios";
 
 const apiWeatherInstance: AxiosInstance = axios.create({
-  baseURL: "http://api.weatherapi.com/v1/current.json",
+  baseURL: "http://api.weatherapi.com/v1/",
 });
 
 apiWeatherInstance.interceptors.request.use(
   async (config) => {
-    const key = "cf9fd346a30a40e393834852222510";
+    const key = import.meta.env.VITE_WEATHER_API_KEY;
 
     config.params = { ...config.params, key };
 

@@ -45,3 +45,13 @@ export interface ILocationWeather {
   localtime_epoch: number;
   localtime: string;
 }
+
+export interface ILocationAutocomplete {
+  id: number;
+  name: string;
+  region: string;
+  country: string;
+  lat: number;
+  lon: number;
+  url: string;
+}

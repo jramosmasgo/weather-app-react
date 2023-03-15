@@ -14,10 +14,9 @@ const Main: React.FunctionComponent = () => {
   const getDataWeather = async () => {
     const myLocation = await getLocation();
     const data = await getWeatherByLocation(myLocation.city);
-    dispatch({ type: ActionTypes.SET_LOCATION, payload: data.data.location });
-    console.log(state);
+    if (data.data)
+      dispatch({ type: ActionTypes.SET_LOCATION, payload: data.data.location });
   };
-
   useEffect(() => {
     getDataWeather();
   }, []);

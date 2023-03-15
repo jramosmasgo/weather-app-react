@@ -1,0 +1,24 @@
+.temperature {
+  border-radius: $radious;
+  background: $background;
+  padding: 30px;
+  width: max-content;
+  display: flex;
+  gap: 20px;
+  box-shadow: $shadow;
+
+  .details {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h2 {
+      font-size: 30px;
+    }
+
+    span {
+      color: $first;
+    }
+  }
+}

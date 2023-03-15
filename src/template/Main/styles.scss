@@ -5,9 +5,12 @@
 
   .content {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     background: #eaf4f4;
 
     .outlet {
+      flex-grow: 1;
       padding: 20px;
     }
   }
