@@ -3,29 +3,38 @@
   display: flex;
   flex-direction: column;
 
-  .head {
+  &_head {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .content {
-    flex-wrap: 1;
-    padding: 1.5rem 1rem;
+  &_body {
+    flex-grow: 1;
+    display: grid;
+    margin-top: 15px;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 
-    .items {
-      height: 100%;
-      width: 100%;
+    &-map {
+      border-radius: $radious;
+      grid-column: 1/3;
+      grid-row: 1/4;
+    }
+
+    &-details {
+      grid-column: 3/6;
+      grid-row: 1/4;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1rem;
 
-      .map {
-        border-radius: $radious;
-        background: #000;
-        grid-column: 1/2;
-        grid-row: 1/3;
+      .main-info {
+        width: 100%;
+        grid-column: 1/3;
+        grid-row: 1/2;
       }
     }
   }

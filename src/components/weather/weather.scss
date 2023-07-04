@@ -1,24 +1,79 @@
-.temperature {
+.details-weather {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+
+  .main-info {
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+}
+
+.card-details {
   border-radius: $radious;
   background: $background;
   padding: 30px;
-  width: max-content;
-  display: flex;
+  width: 100%;
   gap: 20px;
   box-shadow: $shadow;
 
-  .details {
-    width: 200px;
+  .title {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    width: 100%;
 
     h2 {
-      font-size: 30px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+  }
+
+  .line-separator {
+    width: 100%;
+    height: 1px;
+    margin: 13px 0;
+    background: silver;
+  }
+
+  .details {
+    display: flex;
+    padding: 0 10px;
+
+    .temperature {
+      margin-top: 10px;
+      flex-grow: 1;
+      width: 50%;
+      display: flex;
+      align-items: center;
+
+      img {
+        transform: scale(1.3);
+        margin-right: 15px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+      }
     }
 
-    span {
-      color: $first;
+    .description {
+      flex-grow: 1;
+      text-align: right;
+      margin-right: 20px;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: silver;
+        margin-top: 5px;
+      }
     }
   }
 }

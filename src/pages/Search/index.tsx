@@ -1,9 +1,8 @@
 import { getWeatherByLocation } from "@/api/WeatherServices";
 import MapView from "@/components/weather/MapView";
-import Temperature from "@/components/weather/Temperature";
-import Time from "@/components/weather/Time";
 import { ICurrentLocation } from "@/types/currentLocation";
 import React from "react";
+import DetailsWeather from "./components/DetailsWeather";
 import InputSearchPlace from "./components/InputSearchPlace";
 import "./styles.scss";
 
@@ -18,26 +17,19 @@ const Search: React.FunctionComponent = () => {
 
   return (
     <div className="search">
-      <div className="head">
+      <div className="search_head">
         <InputSearchPlace onClickPlace={(lat, lng) => getWeather(lng, lat)} />
       </div>
-      <div className="content">
-        {placeFound && (
-          <div className="items">
-            <MapView
-              classStyle="map"
-              latitude={placeFound?.location.lat}
-              longitude={placeFound?.location.lon}
-            />
-            <div className="info">
-              <Temperature infoWeather={placeFound} />
-            </div>
-            <div className="info">
-              <Time infoTime={placeFound.location} />
-            </div>
-          </div>
-        )}
-      </div>
+      {placeFound && (
+        <div className="search_body">
+          <MapView
+            classStyle="search_body-map"
+            latitude={placeFound?.location.lat}
+            longitude={placeFound?.location.lon}
+          />
+          <DetailsWeather infoWeather={placeFound} />
+        </div>
+      )}
     </div>
   );
 };
